@@ -13,7 +13,7 @@ input,textarea{
   font-size:18px;
   border: 1px solid #dee7ec;
   
-}
+}*/
 .header {
   background-color: #26d0c9;
   color: #fff;
@@ -35,7 +35,7 @@ input,textarea{
   padding: 100px 80px;
 }
 
-.copy-container h1 {
+/*.copy-container h1 {
   font-size: 140px;
 }
 
@@ -78,7 +78,7 @@ input,textarea{
 .contact-submit{
   background-color:#dee7ec;
   color:#889eab;
-}
+}*/
 
 .footer {
   background-color: #2f5167;
