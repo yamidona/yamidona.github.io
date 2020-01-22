@@ -15,12 +15,14 @@
       <h1 id="output"></h1>
     </div>
     <script type="text/javascript">
+      <!-- /* ここからスタイルを見えなくする */
             const btn = document.getElementById('btn');
             btn.addEventListener('click', function() {
                 var name = document.getElementById('actor-name').value;
                 var textModMsg = document.getElementById("output");
-                textModMsg.value = name;
+                textModMsg.textContent = name;
             });
+      /* ここまで見えなくなる */ -->
     </script>
   </body>
 </html>
