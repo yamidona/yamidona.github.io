@@ -17,9 +17,9 @@
     <script type="text/javascript">
             const btn = document.getElementById('btn');
             btn.addEventListener('click', function() {
-                var name = document.getElementById('actor-name');
+                var name = document.getElementById('actor-name').value;
                 var textModMsg = document.getElementById("output");
-                textModMsg.textContent = "あああ";
+                textModMsg.value = name;
             });
     </script>
   </body>
