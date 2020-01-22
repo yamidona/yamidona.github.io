@@ -7,7 +7,7 @@
   <body>
     <div class="left-window">
       <h1>HTMLの書き方</h1>
-      <h2>調べたい声優名をコンマ区切りで入力してください</h2>
+      <h2>コンマ区切りで入力してください</h2>
       <textarea id="actor-name"></textarea>
       <button id="btn">実行</button>
     </div>
@@ -18,12 +18,9 @@
         const btn = document.getElementById('btn');
         btn.addEventListener('click', function() {
             var name = document.getElementById('actor-name');
-            var textModMsg = document.getElementById("output");
+            var textModMsg = document.getElementById('output');
             textModMsg.textContent = name;
         });
- 
-        //ここにJavaScriptを記述する
- 
     </script>
   </body>
 </html>
