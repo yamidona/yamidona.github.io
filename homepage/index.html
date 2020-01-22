@@ -5,7 +5,27 @@
     <title>HTMLのタイトル</title>
   </head>
   <body>
-    <h1>HTMLの書き方</h1>
-    <p>はじめてのHTMLを作りました</p>
+    <div class="left-window">
+      <h1>HTMLの書き方</h1>
+      <p>調べたい声優名をコンマ区切りで入力してください</p>
+      <textarea id="actor-name"></textarea>
+      <button id="btn">実行</button>
+    </div>
+    <div class="right-window">
+      <p id="output"></p>
+    </div>
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            var name = document.getElementById('actor-name');
+            var textModMsg = document.getElementById('output');
+            textModMsg.textContent = name;
+            
+ 
+        });
+ 
+        //ここにJavaScriptを記述する
+ 
+    </script>
   </body>
 </html>
