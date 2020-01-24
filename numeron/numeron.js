@@ -5,7 +5,6 @@ function buttonMake(idname){
   select.idName=idname;
   for (let i=1;i<10;i++){
     var option = document.createElement("option");
-    option.text = String(i);
     option.value = String(i);
     select.appendChild(option);
   }
