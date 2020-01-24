@@ -27,12 +27,12 @@ btn.addEventListener('click', function() {
       parent.removeChild(child);
       turn=0;
       var buttonArea = document.createElement('div');
-      buttonArea.className = 'button1';
+      buttonArea.className = 'button１';
       buttonArea.idName = 'mynumberbutton';
       console.log(buttonArea);
       parent.appendChild(buttonArea);
-      var eat1=buttonMake('mynumberbutton','eat');
-      var bite1=buttonMake('mynumberbutton','bite');
+      var eat1=buttonMake('eat');
+      var bite1=buttonMake('bite');
       buttonArea.appendChild(eat1);
       buttonArea.appendChild(bite1);
       var button = document.createElement('button');
