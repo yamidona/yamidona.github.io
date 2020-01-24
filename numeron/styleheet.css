@@ -46,15 +46,7 @@ select{
 .button１{
   margin-left:200px;
 }
-input,textarea{
-  width:400px;
-  margin-top:10px;
-  margin-bottom:30px;
-  padding :20px;
-  font-size:18px;
-  border: 1px solid #dee7ec;
-  
-}
+
 .header {
   background-color: #26d0c9;
   color: #fff;
