@@ -41,13 +41,13 @@ function buttonMake(idname,begin,end){
 
 
 
-let hundred=buttonMake('hundred',1,10);
-let ten=buttonMake('ten',1,10);
-let one=buttonMake('one',1,10);
+let hundred1=buttonMake('hundred',1,10);
+let ten1=buttonMake('ten',1,10);
+let one1=buttonMake('one',1,10);
 let parent=document.getElementById("mynumberbutton");
-parent.appendChild(hundred);
-parent.appendChild(ten);
-parent.appendChild(one);
+parent.appendChild(hundred1);
+parent.appendChild(ten1);
+parent.appendChild(one1);
 
 btn.addEventListener('click', function() {
   console.log("kita");
@@ -66,9 +66,13 @@ btn.addEventListener('click', function() {
       buttonarea.parentNode.removeChild(buttonarea);
       let {eat_num,bite_num}=CPUState.eat_bite_compute(CPUnum,hundred,ten,one);
       if (!(eat_num==3 &&bite_num==0)){
-        let number1=yourState.evaluate_calcu_max(num_candidate_list);
+        var number1=yourState.evaluate_calcu_max(num_candidate_list);
         textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\n' + number1 + 'はどうですか？';
         CPUState.state_change(CPUState.candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]));
+        let procedure = document.getElementById("procedure");
+        let option = document.createElement("option");
+        option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite;
+        procedure.appendChild(option);
         
         turn=0;
         let eat1=buttonMake('eat',0,4);
@@ -108,6 +112,10 @@ btn.addEventListener('click', function() {
       textModMsg.textContent ="";
       console.log("kita3");
       yourState.state_change(yourState.candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]));
+      let procedure = document.getElementById("procedure");
+      let option = document.createElement("option");
+      option.text = "CPU宣言:"+number1+" あなた返答:"+eat + 'eat' + bite + 'bite;
+      procedure.appendChild(option);
       let buttonarea =document.getElementById("mynumberbutton");
       buttonarea.parentNode.removeChild(buttonarea);
       turn=1;
