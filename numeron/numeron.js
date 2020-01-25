@@ -79,8 +79,8 @@ btn.addEventListener('click', function() {
         CPUState.state_change(CPUState.candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]));
         let procedure = document.getElementById("procedure");
         let option = document.createElement("option");
-        /*option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';*/
-        /*option.value= "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';*/
+        /*option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
+        /*option.value= "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
         option.text="あなた";
         procedure.appendChild(option);
         
