@@ -1,5 +1,5 @@
 const btn= document.getElementById('btn');
-const num_candidate_list=[]
+const num_candidate_list=[];
 for (let i=1;i<10;i++){
     for (let j=1;j<10;j++){
         for (let k=1;k<10;k++){
@@ -12,8 +12,10 @@ for (let i=1;i<10;i++){
 let State = require('./state');
 let yourState = new State(num_candidate_list);
 let CPUState = new State(num_candidate_list);
-let CPUnum=num_candidate_list[Math.floor(Math.random() * num_candidate_list.length)]]
+let CPUnum=num_candidate_list[Math.floor(Math.random() * num_candidate_list.length)]];
+
 var turn=1;
+
 function ebJudge(eat,bite){
   var ebCombi=[[3,0],[1,2],[0,3],[2,0],[1,1],[1,0],[0,2],[0,0],[0,1]];
   for (let i=0;i<ebCombi.length;i++){
