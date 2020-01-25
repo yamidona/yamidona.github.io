@@ -1,4 +1,5 @@
-/*const btn= document.getElementById('btn');
+const btn= document.getElementById('btn');
+/*
 const num_candidate_list=[];
 for (let i=1;i<10;i++){
     for (let j=1;j<10;j++){
@@ -44,13 +45,13 @@ function buttonMake(idname,begin,end){
 
 
 
-let hundred1=buttonMake('hundred',1,10);
-let ten1=buttonMake('ten',1,10);
-let one1=buttonMake('one',1,10);
+let hundred=buttonMake('hundred',1,10);
+let ten=buttonMake('ten',1,10);
+let one=buttonMake('one',1,10);
 let parent=document.getElementById("mynumberbutton");
-parent.appendChild(hundred1);
-parent.appendChild(ten1);
-parent.appendChild(one1);
+parent.appendChild(hundred);
+parent.appendChild(ten);
+parent.appendChild(one);
 
 btn.addEventListener('click', function() {
   console.log("kita");
@@ -74,7 +75,7 @@ btn.addEventListener('click', function() {
         CPUState.state_change(CPUState.candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]));
         let procedure = document.getElementById("procedure");
         let option = document.createElement("option");
-        option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite;
+        option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
         procedure.appendChild(option);
         
         turn=0;
