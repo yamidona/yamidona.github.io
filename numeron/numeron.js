@@ -135,7 +135,7 @@ btn.addEventListener('click', function() {
       let parent =document.createElement("div");
       let parentparent =document.getElementById("myarea");
       parent.id="mynumberbutton";
-      parent.class="button1";
+      parent.className="button1";
       
       parentparent.insertBefore(parent, parentparent.lastElementChild);
       parent.appendChild(hundred);
