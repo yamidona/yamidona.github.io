@@ -1,4 +1,4 @@
-/*
+
 const btn= document.getElementById('btn');
 
 const num_candidate_list=[];
@@ -11,7 +11,7 @@ for (let i=1;i<10;i++){
         }
     }
 }
-/*
+
 let State = require('./state');
 let yourState = new State(num_candidate_list);
 let CPUState = new State(num_candidate_list);
@@ -79,8 +79,8 @@ btn.addEventListener('click', function() {
         CPUState.state_change(CPUState.candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]));
         let procedure = document.getElementById("procedure");
         let option = document.createElement("option");
-        /*option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
-        /*option.value= "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
+        option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
+        option.value= "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
         option.text="あなた";
         procedure.appendChild(option);
         
@@ -150,7 +150,8 @@ btn.addEventListener('click', function() {
   
   
 });
-*/
+
+          /*
 const btn= document.getElementById('btn');
 
 var turn=1;
@@ -256,5 +257,5 @@ btn.addEventListener('click', function() {
   
   
 });
-
+*/
 
