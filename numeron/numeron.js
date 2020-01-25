@@ -1,5 +1,18 @@
 const btn= document.getElementById('btn');
-
+const num_candidate_list=[]
+for (let i=1;i<10;i++){
+    for (let j=1;j<10;j++){
+        for (let k=1;k<10;k++){
+            if !(i==j || j==k || k==i){
+                num_candidate_list.push(String(i)+String(j)+String(k));
+            }
+        }
+    }
+}
+let State = require('./state');
+let yourState = new State(num_candidate_list);
+let CPUState = new State(num_candidate_list);
+let CPUnum=num_candidate_list[Math.floor(Math.random() * num_candidate_list.length)]]
 var turn=1;
 function ebJudge(eat,bite){
   var ebCombi=[[3,0],[1,2],[0,3],[2,0],[1,1],[1,0],[0,2],[0,0],[0,1]];
@@ -49,18 +62,28 @@ btn.addEventListener('click', function() {
       textModMsg.textContent = "";
       let buttonarea =document.getElementById("mynumberbutton");
       buttonarea.parentNode.removeChild(buttonarea);
+      let {eat_num,bite_num}=CPUState.eat_bite_compute(CPUnum,hundred,ten,one);
+      if (!(eat_num==3 &&bite_num==0)){
+        let number1=yourState.evaluate_calcu_max(num_candidate_list);
+        textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\n' + number1 + 'はどうですか？';
+        CPUState.state_change(CPUState.candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]));
+        
+        turn=0;
+        let eat1=buttonMake('eat',0,4);
+        let bite1=buttonMake('bite',0,4);
+        let parent =document.createElement("div");
+        let parentparent =document.getElementById("myarea");
+        parent.id="mynumberbutton";
+        parent.class="button1";
+        parentparent.insertBefore(parent, parentparent.lastElementChild);
+        parent.appendChild(eat1);
+        parent.appendChild(bite1);
+      }else{
+        
+        textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\nあなたの勝ちです';
+      } 
       
       
-      turn=0;
-      let eat1=buttonMake('eat',0,4);
-      let bite1=buttonMake('bite',0,4);
-      let parent =document.createElement("div");
-      let parentparent =document.getElementById("myarea");
-      parent.id="mynumberbutton";
-      parent.class="button1";
-      parentparent.insertBefore(parent, parentparent.lastElementChild);
-      parent.appendChild(eat1);
-      parent.appendChild(bite1);
       
       
     }else{
@@ -82,6 +105,7 @@ btn.addEventListener('click', function() {
       console.log("kita2");
       textModMsg.textContent ="";
       console.log("kita3");
+      yourState.state_change(yourState.candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]));
       let buttonarea =document.getElementById("mynumberbutton");
       buttonarea.parentNode.removeChild(buttonarea);
       turn=1;
