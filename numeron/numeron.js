@@ -79,6 +79,7 @@ btn.addEventListener('click', function() {
         let procedure = document.getElementById("procedure");
         let option = document.createElement("option");
         option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
+        option.value= "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
         procedure.appendChild(option);
         
         turn=0;
