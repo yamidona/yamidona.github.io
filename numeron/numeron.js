@@ -28,7 +28,7 @@ function ebJudge(eat,bite){
   }
   return false;
 }
-*/
+
 function buttonMake(idname,begin,end){
   var select = document.createElement("select");
   select.id=idname;
