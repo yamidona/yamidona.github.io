@@ -39,6 +39,8 @@ function buttonMake(idname,begin,end){
   return select;
 }  
 
+
+
 let hundred=buttonMake('hundred',1,10);
 let ten=buttonMake('ten',1,10);
 let one=buttonMake('one',1,10);
