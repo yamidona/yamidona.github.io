@@ -1,4 +1,4 @@
-/*const btn= document.getElementById('btn');
+const btn= document.getElementById('btn');
 
 const num_candidate_list=[];
 for (let i=1;i<10;i++){
@@ -10,24 +10,27 @@ for (let i=1;i<10;i++){
         }
     }
 }
-/*let State = require('./state');
+/*
+let State = require('./state');
 let yourState = new State(num_candidate_list);
 let CPUState = new State(num_candidate_list);
 let CPUnum=num_candidate_list[Math.floor(Math.random() * num_candidate_list.length)]];
-
+*/
 var turn=1;
 
-function ebJudge(eat,bite){
-  var ebCombi=[[3,0],[1,2],[0,3],[2,0],[1,1],[1,0],[0,2],[0,0],[0,1]];
-  for (let i=0;i<ebCombi.length;i++){
-    console.log(ebCombi[i][0])
-    console.log(ebCombi[i][1])
-    if (eat==ebCombi[i][0] && bite==ebCombi[i][1]){
-      return true;
-    }
+function buttonMake(idname,begin,end){
+  var select = document.createElement("select");
+  select.id=idname;
+  select.className="numselect";
+  
+  for (let i=begin;i<end;i++){
+    var option = document.createElement("option");
+    option.text = String(i);
+    option.value = String(i);
+    select.appendChild(option);
   }
-  return false;
-}
+  return select;
+}  
 
 function buttonMake(idname,begin,end){
   var select = document.createElement("select");
@@ -144,7 +147,7 @@ btn.addEventListener('click', function() {
   
   
 });
-*/
+/*
 const btn= document.getElementById('btn');
 
 var turn=1;
@@ -250,4 +253,4 @@ btn.addEventListener('click', function() {
   
   
 });
-
+*/
