@@ -10,12 +10,12 @@ for (let i=1;i<10;i++){
         }
     }
 }
-/*
+
 let State = require('./state');
 let yourState = new State(num_candidate_list);
 let CPUState = new State(num_candidate_list);
 let CPUnum=num_candidate_list[Math.floor(Math.random() * num_candidate_list.length)]];
-*/
+
 var turn=1;
 
 function buttonMake(idname,begin,end){
