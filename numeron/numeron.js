@@ -25,7 +25,8 @@ function eat_bite_compute(compute,a,b,c){
   let eat=0;
   let bite=0;
   let dec=[a,b,c];
-  
+  console.log(compute);
+  console.log(a+b+c);
   if (dec.indexOf(compute.charAt(0))!=-1){
     if (compute.charAt(0)==a){
       eat+=1;
@@ -78,22 +79,22 @@ function multiple_list(list1,list2){
  }
 function evaluate_calcu_max(list1,select_list){
       let evaluation_value_list=[];
-      console.log("長さ"+select_list.length);
+      
       for (let i=0;i<select_list.length;i++){
-        console.log(i);
+        
         let evaluation_value=0;
         let value=select_list[i];
-        console.log(value);
+        
         for (let j=0;j<eat_bite_combi.length;j++){
           evaluation_value+=(eat_bite_compute_list(value,list1,eat_bite_combi[j])*(candidate_list_calcu(list1,eat_bite_combi[j][0],eat_bite_combi[j][1],value).length));
         }
-        console.log("値"+evaluation_value);                                  evaluation_value_list.push([value,evaluation_value]);
+                                          evaluation_value_list.push([value,evaluation_value]);
       }
       evaluation_value_list.sort(function(a,b){return(b[1] - a[1]);});
-      console.log(evaluation_value_list.length);
+      
       let max_score_list=[];
       let maxscore=evaluation_value_list[0][1];
-      console.log("manko");
+      
       for (let i=0;i<evaluation_value_list.length;i++){
         if (maxscore==evaluation_value_list[i][1]){
             max_score_list.push(evaluation_value_list[i]);
@@ -304,7 +305,7 @@ function buttonMake(idname,begin,end){
   select.className="numselect";
 
   for (let i=begin;i<end;i++){
-    var option = document.createElement("option");
+    let option = document.createElement("option");
     option.text = String(i);
     option.value = String(i);
     select.appendChild(option);
@@ -322,28 +323,26 @@ parent1.appendChild(ten);
 parent1.appendChild(one);
 let Flag=true
 btn.addEventListener('click', function() {
-  console.log("kita");
+  
   if (turn===1){
     let hundrednum = document.getElementById('hundred').value;
     let tennum = document.getElementById("ten").value;
     let onenum = document.getElementById("one").value;
-    console.log(hundred);
-    console.log(ten);
-    console.log(one);
+    
     if (!(hundrednum===tennum ||tennum===onenum ||hundrednum===onenum)){
       let textModMsg = document.getElementById("cpuarea");
       textModMsg.textContent = "";
       let buttonarea =document.getElementById("mynumberbutton");
       let parentarea =document.getElementById("myarea");
       parentarea.removeChild(buttonarea);
-      console.log("oppai");
-      console.log(CPUnum);
-      let eatbite=eat_bite_compute(CPUnum,hundred,ten,one);
+      
+      console.log("コンピュータの数"+CPUnum);
+      let eatbite=eat_bite_compute(CPUnum,hundrednum,tennum,onenum);
       eat_num=eatbite[0];
       bite_num=eatbite[1];
-      console.log("oppai");
+      
 			if (!(eat_num==3 &&bite_num==0)){
-        console.log("oppai5");
+        
         if (Flag=false){
           declarenumber1=evaluate_calcu_max(CPUState,num_candidate_list);
         }else{
@@ -351,25 +350,25 @@ btn.addEventListener('click', function() {
         }
         Flag=false;
         textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\n' + declarenumber1 + 'はどうですか？';
-        CPUState=candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]);
+        CPUState=candidate_list_calcu(eat_num,bite_num,[hundrednum,tennum,onenum]);
         let procedure = document.getElementById("procedure");
-        let option = document.createElement("option");
-        option.text = "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
-        option.value= "あなた宣言:"+hundred+ten+one+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
-        procedure.appendChild(option);
+        let option1 = document.createElement("option");
+        option1.text = "あなた宣言:"+hundrednum+tennum+onenum+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
+        
+        procedure.appendChild(option1);
 
         turn=0;
         let eat1=buttonMake('eat',0,4);
         let bite1=buttonMake('bite',0,4);
         let parent =document.createElement("div");
-        let parentparent =document.getElementById("myarea");
+        
         parent.id="mynumberbutton";
         parent.class="button1";
-        console.log(parentparent);
-        parentparent.insertBefore(parent, parentparent.lastElementChild);
-        
         parent.appendChild(eat1);
         parent.appendChild(bite1);
+        parentarea.insertBefore(parent, parentarea.lastElementChild);
+        
+        
         
       }else{
         textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\nあなたの勝ちです';
@@ -382,19 +381,18 @@ btn.addEventListener('click', function() {
     }
   }else{
     let eat = document.getElementById('eat').value;
-    console.log(eat);
+    
     let bite = document.getElementById('bite').value;
-    console.log(bite);
-    console.log([Number(eat),Number(bite)]);
+    
     if (!ebJudge(Number(eat),Number(bite))){
       let textModMsg = document.getElementById("cpuarea");
       textModMsg.textContent =  "入力が間違っています。";
     }else{
-      console.log("kita1");
+      
       let textModMsg = document.getElementById("cpuarea");
-      console.log("kita2");
-      textModMsg.textContent ="";
-      console.log("kita3");
+      
+      textModMsg.textContent ="宣言する数を入力してください。";
+      
       yourState=candidate_list_calcu(eat,bite,[declarenumber1.charAt(0),declarenumber1.charAt(1),declarenumber1.charAt(2)]);
       let buttonarea =document.getElementById("mynumberbutton");
       buttonarea.parentNode.removeChild(buttonarea);
@@ -410,6 +408,14 @@ btn.addEventListener('click', function() {
       parent.appendChild(hundred);
       parent.appendChild(ten);
       parent.appendChild(one);
+      let procedure = document.getElementById("procedure");
+      let option1 = document.createElement("option");
+        option1.text = "CPU宣言:"+declarenumber1+" あなた返答:"+String(eat) + 'eat' + String(bite) + 'bite';
+        console.log("CPU");
+        console.log(CPUState);
+        console.log("あなた");
+        console.log(yourState);
+        procedure.appendChild(option1);
 
     }
 
