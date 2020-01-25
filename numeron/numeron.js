@@ -1,4 +1,5 @@
 const btn= document.getElementById('btn');
+
 var turn=1;
 function ebJudge(eat,bite){
   var ebCombi=[[3,0],[1,2],[0,3],[2,0],[1,1],[1,0],[0,2],[0,0],[0,1]];
@@ -25,6 +26,13 @@ function buttonMake(idname,begin,end){
   return select;
 }  
 
+let hundred=buttonMake('hundred',1,10);
+let ten=buttonMake('ten',1,10);
+let one=buttonMake('one',1,10);
+let　parent=document.getElementById("mynumberbutton");
+parent.appendChild(hundred);
+parent.appendChild(ten);
+parent.appendChild(one);
 
 btn.addEventListener('click', function() {
   console.log("kita");
@@ -39,21 +47,21 @@ btn.addEventListener('click', function() {
     if (!(hundred===ten ||ten===one ||hundred===one)){
       let textModMsg = document.getElementById("cpuarea");
       textModMsg.textContent = "";
-      var select_list =document.getElementsByClassName("numselect");
-      console.log(select_list[0]);
-      console.log(select_list.length);
-      let parent=document.getElementById("mynumberbutton");
-      for (let i = 0; i <select_list.length; i++) {
-
-            var e = select_list[i];
-            e.parentNode.removeChild(e);
-      }
+      let buttonarea =document.getElementById("mynumberbutton");
+      buttonarea.parentNode.removeChild(buttonarea);
+      
       
       turn=0;
       let eat1=buttonMake('eat',0,4);
       let bite1=buttonMake('bite',0,4);
-      parent.insertBefore(eat1, parent.lastElementChild);
-      parent.insertBefore(bite1, parent.lastElementChild);
+      let parent =document.createElement("div");
+      let parentparent =document.getElementById("myarea");
+      parent.id="mynumberbutton";
+      parent.class="button1";
+      parentparent.insertBefore(parent, parentparent.lastElementChild);
+      parent.appendChild(eat1);
+      parent.appendChild(bite1);
+      
       
     }else{
       var textModMsg = document.getElementById("cpuarea");
@@ -74,21 +82,20 @@ btn.addEventListener('click', function() {
       console.log("kita2");
       textModMsg.textContent ="";
       console.log("kita3");
-      let parent=document.getElementById("mynumberbutton");
-      
-      var select_list =document.getElementsByClassName("numselect");
+      let buttonarea =document.getElementById("mynumberbutton");
+      buttonarea.parentNode.removeChild(buttonarea);
       turn=1;
-      for (let i = 0; i <select_list.length; i++) {
-            var e = select_list[i];
-            e.parentNode.removeChild(e);
-      }
-      
       let hundred=buttonMake('hundred',1,10);
       let ten=buttonMake('ten',1,10);
       let one=buttonMake('one',1,10);
-      parent.insertBefore(hundred, parent.lastElementChild);
-      parent.insertBefore(ten, parent.lastElementChild);
-      parent.insertBefore(one, parent.lastElementChild);
+      let parent =document.createElement("div");
+      let parentparent =document.getElementById("myarea");
+      parent.id="mynumberbutton";
+      parent.class="button1";
+      parentparent.insertBefore(parent, parentparent.lastElementChild);
+      parent.appendChild(hundred);
+      parent.appendChild(ten);
+      parent.appendChild(one);
       
     }
     
