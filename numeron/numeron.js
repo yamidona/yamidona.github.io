@@ -85,9 +85,10 @@ btn.addEventListener('click', function() {
         let parentparent =document.getElementById("myarea");
         parent.id="mynumberbutton";
         parent.class="button1";
-        parentparent.insertBefore(parent, parentparent.lastElementChild);
         parent.appendChild(eat1);
         parent.appendChild(bite1);
+        parentparent.insertBefore(parent, parentparent.lastElementChild);
+        
       }else{
         
         textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\nあなたの勝ちです';
@@ -130,10 +131,11 @@ btn.addEventListener('click', function() {
       let parentparent =document.getElementById("myarea");
       parent.id="mynumberbutton";
       parent.class="button1";
-      parentparent.insertBefore(parent, parentparent.lastElementChild);
       parent.appendChild(hundred);
       parent.appendChild(ten);
       parent.appendChild(one);
+      parentparent.insertBefore(parent, parentparent.lastElementChild);
+      
       
     }
     
