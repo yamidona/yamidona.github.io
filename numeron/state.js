@@ -16,10 +16,9 @@ class State {
     state_change(state){
         this.state = state;
     }
-    eat_bite_compute(a,b,c){
+    eat_bite_compute(compute,a,b,c){
       let eat=0;
       let bite=0;
-      let compute=this.state;
       let dec=[a,b,c];
       if (dec.indexOf(compute.charAt(0))!=-1){
           if (compute.charAt(0)==a){
@@ -57,8 +56,9 @@ class State {
           }
       return current_count;
     }
-    evaluate_calcu(list1,select_list){
+    evaluate_calcu_max(select_list){
       let evaluation_value_list=[];
+      let list1=this.state;
       for (let i=0;i<select_list.length;i++){
         let evaluation_value=0;
         value=select_list[i]
