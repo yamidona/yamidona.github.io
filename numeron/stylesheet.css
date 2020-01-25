@@ -87,6 +87,9 @@ input,textarea{
 .My-Area{ 
   display:flex;
 }
+.button1{
+  margin-left:240px;
+}
 button{
   height:30px;
   margin-top:50px;
