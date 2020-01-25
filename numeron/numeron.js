@@ -42,7 +42,7 @@ function buttonMake(idname,begin,end){
 let hundred=buttonMake('hundred',1,10);
 let ten=buttonMake('ten',1,10);
 let one=buttonMake('one',1,10);
-let　parent=document.getElementById("mynumberbutton");
+let parent=document.getElementById("mynumberbutton");
 parent.appendChild(hundred);
 parent.appendChild(ten);
 parent.appendChild(one);
