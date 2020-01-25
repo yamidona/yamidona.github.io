@@ -25,8 +25,7 @@ function eat_bite_compute(compute,a,b,c){
   let eat=0;
   let bite=0;
   let dec=[a,b,c];
-  console.log(compute.charAt(0));
-  console.log(dec.indexOf(compute.charAt(0)));
+  
   if (dec.indexOf(compute.charAt(0))!=-1){
     if (compute.charAt(0)==a){
       eat+=1;
@@ -34,8 +33,7 @@ function eat_bite_compute(compute,a,b,c){
       bite+=1;
     }
   }
-  console.log("oppai");
-  console.log(dec.indexOf(compute.charAt(1)));
+  
   if (dec.indexOf(compute.charAt(1))!=-1) {
     if (compute.charAt(1)==b){
       eat+=1;
@@ -43,7 +41,7 @@ function eat_bite_compute(compute,a,b,c){
       bite+=1;
     }
   }
-  console.log("oppai");
+  
   if (dec.indexOf(compute.charAt(2))!=-1){
     if (compute.charAt(2)==c){
       eat+=1;
@@ -51,7 +49,7 @@ function eat_bite_compute(compute,a,b,c){
       bite+=1;
     }
   }
-  console.log("oppai1");
+ 
   return [eat, bite];
  }
  
@@ -80,17 +78,22 @@ function multiple_list(list1,list2){
  }
 function evaluate_calcu_max(list1,select_list){
       let evaluation_value_list=[];
+      console.log("長さ"+select_list.length);
       for (let i=0;i<select_list.length;i++){
+        console.log(i);
         let evaluation_value=0;
         let value=select_list[i];
+        console.log(value);
         for (let j=0;j<eat_bite_combi.length;j++){
           evaluation_value+=(eat_bite_compute_list(value,list1,eat_bite_combi[j])*(candidate_list_calcu(list1,eat_bite_combi[j][0],eat_bite_combi[j][1],value).length));
         }
-        evaluation_value_list.push([value,evaluation_value]);
+        console.log("値"+evaluation_value);                                  evaluation_value_list.push([value,evaluation_value]);
       }
       evaluation_value_list.sort(function(a,b){return(b[1] - a[1]);});
+      console.log(evaluation_value_list.length);
       let max_score_list=[];
       let maxscore=evaluation_value_list[0][1];
+      console.log("manko");
       for (let i=0;i<evaluation_value_list.length;i++){
         if (maxscore==evaluation_value_list[i][1]){
             max_score_list.push(evaluation_value_list[i]);
@@ -98,7 +101,8 @@ function evaluate_calcu_max(list1,select_list){
             break;
         }
       }
-      return (max_score_list[Math.floor(Math.random() * max_score_list.length)]);
+      
+      return (max_score_list[Math.floor(Math.random() * max_score_list.length)][0]);
     }
 
     function candidate_list_calcu(list1,eat,bite,declare) {
@@ -106,11 +110,11 @@ function evaluate_calcu_max(list1,select_list){
                     let candidate2=[String(declare[0])+String(declare[2])+String(declare[1]),
                     String(declare[1])+String(declare[0])+String(declare[2]),
                     String(declare[2])+String(declare[1])+String(declare[0])];
-                    return multiple_list(candidate2,this.state);
+                    return multiple_list(candidate2,list1);
             }else if (eat==0 && bite==3){
                 let candidate2 = [String(declare[2]) + String(declare[0]) + String(declare[1]),
                               String(declare[1]) + String(declare[2]) + String(declare[0])];
-                return multiple_list(candidate2,this.state);
+                return multiple_list(candidate2,list1);
             }else if (eat==2 && bite==0){
                 const v=[[0,1],[1,2],[0,2]];
                 let candidate2=[];
@@ -206,7 +210,7 @@ function evaluate_calcu_max(list1,select_list){
                          }
                     }
                 }
-                return multiple_list(candidate2,this.state);
+                return multiple_list(candidate2,list1);
 
             }else if (eat==0 && bite==1) {
                 let candidate2 = [];
@@ -287,8 +291,7 @@ var turn=1;
 function ebJudge(eat,bite){
   var ebCombi=[[3,0],[1,2],[0,3],[2,0],[1,1],[1,0],[0,2],[0,0],[0,1]];
   for (let i=0;i<ebCombi.length;i++){
-    console.log(ebCombi[i][0]);
-    console.log(ebCombi[i][1]);
+    
     if (eat==ebCombi[i][0] && bite==ebCombi[i][1]){
       return true;
     }
@@ -317,7 +320,7 @@ let parent1=document.getElementById("mynumberbutton");
 parent1.appendChild(hundred);
 parent1.appendChild(ten);
 parent1.appendChild(one);
-
+let Flag=true
 btn.addEventListener('click', function() {
   console.log("kita");
   if (turn===1){
@@ -336,12 +339,17 @@ btn.addEventListener('click', function() {
       console.log("oppai");
       console.log(CPUnum);
       let eatbite=eat_bite_compute(CPUnum,hundred,ten,one);
-eat_num=eatbite[0];
-bite_num=eatbite[1];
+      eat_num=eatbite[0];
+      bite_num=eatbite[1];
       console.log("oppai");
 			if (!(eat_num==3 &&bite_num==0)){
         console.log("oppai5");
-        declarenumber1=evaluate_calcu_max(CPUState,num_candidate_list);
+        if (Flag=false){
+          declarenumber1=evaluate_calcu_max(CPUState,num_candidate_list);
+        }else{
+          declarenumber1=num_candidate_list[Math.floor(Math.random() * num_candidate_list.length)];
+        }
+        Flag=false;
         textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\n' + declarenumber1 + 'はどうですか？';
         CPUState=candidate_list_calcu(eat_num,bite_num,[hundred,ten,one]);
         let procedure = document.getElementById("procedure");
