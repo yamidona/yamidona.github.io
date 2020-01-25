@@ -1,4 +1,4 @@
-const btn= document.getElementById('btn');
+/*const btn= document.getElementById('btn');
 const num_candidate_list=[];
 for (let i=1;i<10;i++){
     for (let j=1;j<10;j++){
@@ -27,6 +27,7 @@ function ebJudge(eat,bite){
   }
   return false;
 }
+*/
 function buttonMake(idname,begin,end){
   var select = document.createElement("select");
   select.id=idname;
