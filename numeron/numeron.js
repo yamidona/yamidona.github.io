@@ -272,6 +272,7 @@ function evaluate_calcu_max(list1,select_list){
                 return [declare];
        }else{
          console.log("oppai1");
+         
        }
     
    
@@ -379,6 +380,9 @@ btn.addEventListener('click', function() {
         
       }else{
         textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\nあなたの勝ちです';
+        let parentarea =document.getElementById("myarea");
+        parentarea.removeChild(buttonarea);
+      
       }
 
 
@@ -396,14 +400,18 @@ btn.addEventListener('click', function() {
       textModMsg.textContent =  "入力が間違っています。";
     }else if(eat=="3"&&  bite=="0"){
        let textModMsg = document.getElementById("cpuarea");
-      textModMsg.textContent ="あなたの負けです。"; 
-    }else{
+      textModMsg.textContent ="あなたの負けです。";
+      let parentarea =document.getElementById("myarea");
+      parentarea.removeChild(buttonarea);
       
+    }else{
+        yourState=candidate_list_calcu(yourState,Number(eat),Number(bite),[declarenumber1.charAt(0),declarenumber1.charAt(1),declarenumber1.charAt(2)]);
+    if (yourState.length!=0){
       let textModMsg = document.getElementById("cpuarea");
       
       textModMsg.textContent ="宣言する数を入力してください。";
       
-      yourState=candidate_list_calcu(yourState,Number(eat),Number(bite),[declarenumber1.charAt(0),declarenumber1.charAt(1),declarenumber1.charAt(2)]);
+      
       let buttonarea =document.getElementById("mynumberbutton");
       buttonarea.parentNode.removeChild(buttonarea);
       turn=1;
@@ -426,6 +434,12 @@ btn.addEventListener('click', function() {
         console.log("あなた");
         console.log(yourState);
         procedure.appendChild(option1);
+    }else{
+      let textModMsg = document.getElementById("cpuarea");
+      textModMsg.textContent ="選ぶ候補がありません。eat、biteの宣言をどこかで間違えたと思われます。最初からやり直してください";
+      let parentarea =document.getElementById("myarea");
+      parentarea.removeChild(buttonarea);
+    }
 
     }
 
