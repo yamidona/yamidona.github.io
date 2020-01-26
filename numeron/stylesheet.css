@@ -8,6 +8,7 @@ body {
 .right-window{
   margin-left:30px;
 }
+
 .left-window li {
   border: 2px solid #1ea71c;
   list-style: none;
@@ -15,6 +16,7 @@ body {
   height:100px;
   font-size:30px;
   background-color: #5ccc5c;
+  margin-top:100px;
   display: table-cell;
   vertical-align: middle;
   color: #fff;
@@ -30,6 +32,11 @@ body {
   vertical-align: middle;
   color: #fff;
 }
+.buttontext{
+  font-size:30px;
+  color:#000;
+  
+}
 .CPU-Area {
   border: 2px solid #bec7ec;
   width:465px;
@@ -41,16 +48,14 @@ body {
 }
 select{
   width:50px;
-  margin-top:50px;
+  margin-top:0px;
   font-size:20px;
   color :#000;
   background-color: #efbeee;
 }
 
 
-.button1{
-  margin-left:240px;
-}
+
 input,textarea{
   width:400px;
   margin-top:10px;
@@ -89,6 +94,16 @@ input,textarea{
   display:flex;
   
 }
+.button1{
+ display:flex;
+}
+.buttonblock div{
+  color:#555;
+  margin-left:9px;
+  font-size:20px;
+  
+}
+
 .main {
   
   padding: 40px 200px 500px 0px;
