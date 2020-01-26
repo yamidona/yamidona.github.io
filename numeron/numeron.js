@@ -434,3 +434,7 @@ btn.addEventListener('click', function() {
 
 });
 
+btn1.addEventListener('click', function() {
+  window.location.href = 'https://yamidona.github.io/numeron/'; 
+});
+
