@@ -79,6 +79,7 @@ function multiple_list(list1,list2){
   }
   return current_count;
  }
+
 function evaluate_calcu_max(list1,select_list){
       let evaluation_value_list=[];
       
@@ -318,15 +319,37 @@ function buttonMake(idname,begin,end){
   }
   return select;
 }
+function buttonBlock(text,idname,begin,end){
+  var select = document.createElement("div");
+  var buttontext=document.createElement("div");
+  buttontext.innerHTML=text;
+  document.createElement("select");
+  select.className="buttonblock";
+ select.appendChild(buttontext); select.appendChild(buttonMake(idname,begin,end));
+  
+  return select;
+}
+function textMake(text){
+  var select = document.createElement("div");
+  select.className="buttonblock";
+  
+  return select;
+}
+let hundred=buttonBlock('百','hundred',1,10);
+let ten=buttonBlock('十','ten',1,10);
+let one=buttonBlock('一','one',1,10);
 
-let hundred=buttonMake('hundred',1,10);
-let ten=buttonMake('ten',1,10);
-let one=buttonMake('one',1,10);
 let declarenumber1;
 let parent1=document.getElementById("mynumberbutton");
+
 parent1.appendChild(hundred);
+
+
 parent1.appendChild(ten);
+
 parent1.appendChild(one);
+console.log("");
+console.log(parent1);
 let Flag=true
 btn.addEventListener('click', function() {
   
@@ -366,12 +389,12 @@ btn.addEventListener('click', function() {
         procedure.appendChild(option1);
 
         turn=0;
-        let eat1=buttonMake('eat',0,4);
-        let bite1=buttonMake('bite',0,4);
+        let eat1=buttonBlock('EAT','eat',0,4);
+        let bite1=buttonBlock('BITE','bite',0,4);
         let parent =document.createElement("div");
         
         parent.id="mynumberbutton";
-        parent.class="button1";
+        parent.className="button1";
         parent.appendChild(eat1);
         parent.appendChild(bite1);
         parentarea.insertBefore(parent, parentarea.lastElementChild);
@@ -415,13 +438,13 @@ btn.addEventListener('click', function() {
       let buttonarea =document.getElementById("mynumberbutton");
       buttonarea.parentNode.removeChild(buttonarea);
       turn=1;
-      let hundred=buttonMake('hundred',1,10);
-      let ten=buttonMake('ten',1,10);
-      let one=buttonMake('one',1,10);
+      let hundred=buttonBlock('百','hundred',1,10);
+      let ten=buttonBlock('十','ten',1,10);
+      let one=buttonBlock('一','one',1,10);
       let parent =document.createElement("div");
       let parentparent =document.getElementById("myarea");
       parent.id="mynumberbutton";
-      parent.class="button1";
+      parent.className="button1";
       parentparent.insertBefore(parent, parentparent.lastElementChild);
       parent.appendChild(hundred);
       parent.appendChild(ten);
