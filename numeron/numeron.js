@@ -15,7 +15,9 @@ function multiple_list(list1,list2){
           list.push(list1[i]);
         }
     }
+    console.log("リスト"+list);
     return list;
+   
 }
 const eat_bite_combi=[[3,0],[1,2],[0,3],[2,0],[1,1],[1,0],[0,2],[0,0],[0,1]];
 
@@ -107,6 +109,7 @@ function evaluate_calcu_max(list1,select_list){
     }
 
     function candidate_list_calcu(list1,eat,bite,declare) {
+      
             if (eat==1 && bite==2){
                     let candidate2=[String(declare[0])+String(declare[2])+String(declare[1]),
                     String(declare[1])+String(declare[0])+String(declare[2]),
@@ -267,6 +270,8 @@ function evaluate_calcu_max(list1,select_list){
 
             }else if (eat == 3 && bite == 0){
                 return [declare];
+       }else{
+         console.log("oppai1");
        }
     
    
@@ -344,13 +349,15 @@ btn.addEventListener('click', function() {
 			if (!(eat_num==3 &&bite_num==0)){
         
         if (Flag=false){
-          declarenumber1=evaluate_calcu_max(CPUState,num_candidate_list);
+          declarenumber1=evaluate_calcu_max(yourState,num_candidate_list);
+        }else if(yourState.length<4){
+          declarenumber1=evaluate_calcu_max(yourState,yourState);
         }else{
           declarenumber1=num_candidate_list[Math.floor(Math.random() * num_candidate_list.length)];
         }
         Flag=false;
         textModMsg.textContent = String(eat_num) + 'eat' + String(bite_num) + 'biteです。\n' + declarenumber1 + 'はどうですか？';
-        CPUState=candidate_list_calcu(eat_num,bite_num,[hundrednum,tennum,onenum]);
+        CPUState=candidate_list_calcu(CPUState,Number(eat_num),Number(bite_num),[hundrednum,tennum,onenum]);
         let procedure = document.getElementById("procedure");
         let option1 = document.createElement("option");
         option1.text = "あなた宣言:"+hundrednum+tennum+onenum+" CPU返答:"+String(eat_num) + 'eat' + String(bite_num) + 'bite';
@@ -387,13 +394,16 @@ btn.addEventListener('click', function() {
     if (!ebJudge(Number(eat),Number(bite))){
       let textModMsg = document.getElementById("cpuarea");
       textModMsg.textContent =  "入力が間違っています。";
+    }else if(eat=="3"&&  bite=="0"){
+       let textModMsg = document.getElementById("cpuarea");
+      textModMsg.textContent ="あなたの負けです。"; 
     }else{
       
       let textModMsg = document.getElementById("cpuarea");
       
       textModMsg.textContent ="宣言する数を入力してください。";
       
-      yourState=candidate_list_calcu(eat,bite,[declarenumber1.charAt(0),declarenumber1.charAt(1),declarenumber1.charAt(2)]);
+      yourState=candidate_list_calcu(yourState,Number(eat),Number(bite),[declarenumber1.charAt(0),declarenumber1.charAt(1),declarenumber1.charAt(2)]);
       let buttonarea =document.getElementById("mynumberbutton");
       buttonarea.parentNode.removeChild(buttonarea);
       turn=1;
