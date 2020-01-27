@@ -325,7 +325,8 @@ function buttonBlock(text,idname,begin,end){
   buttontext.innerHTML=text;
   document.createElement("select");
   select.className="buttonblock";
- select.appendChild(buttontext); select.appendChild(buttonMake(idname,begin,end));
+  select.appendChild(buttontext); 
+  select.appendChild(buttonMake(idname,begin,end));
   
   return select;
 }
